@@ -48,6 +48,6 @@ public class Demo04 {
 		String newTitle = "8년 전 박수홍 '노예계약' 예견한 변호사...\"형을 소송하라고요?\"";
 		System.out.println(newTitle);
 		
-	}
+	} 
 
 }
