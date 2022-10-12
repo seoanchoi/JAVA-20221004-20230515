@@ -46,8 +46,8 @@ public class Demo04 {
 		System.out.println("이스케이프 문자라고 한다.");
 		
 		String newTitle = "8년 전 박수홍 '노예계약' 예견한 변호사...\"형을 소송하라고요?\"";
-		System.out.println(newTitle);
+		System.out.println(newTitle);  
 		
-	} 
+	}  
 
 }
