@@ -13,18 +13,25 @@ public class Exam02 {
 		 */
 		
 	Scanner sc = new Scanner(System.in);	
+	int size = 0;
 	
-	System.out.print("정수값 입력 : ");
-	int x = sc.nextInt();
+	while(!(size >= 5 && size <= 10)) {
+		System.out.print("5 ~ 10 사이의정수 입력 : ");
+		size = sc.nextInt();
+	}
+	
+	int arr1[] = new int[size];
+	
+	for(int i = 0; i < size; i++) {
+		arr1[i] = -1;
+		System.out.printf("%d\t", arr1[i]);
+	}
+
 	
 	
 	
 	}
 
 }
-int num = 0;  
-for(int cnt = 1; cnt <=3; cnt++) {
-	System.out.print("1 ~ 45 사이의 정수 입력 : ");
-	
 	
 	

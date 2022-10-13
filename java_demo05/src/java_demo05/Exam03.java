@@ -1,5 +1,7 @@
 package java_demo05;
 
+import java.util.Scanner;
+
 public class Exam03 {
 
 	public static void main(String[] args) {
@@ -11,6 +13,28 @@ public class Exam03 {
 		 *  1 ~ 10 사이의 값만을 입력 받아 초기화 하세요.
 		 */	
 
+		Scanner sc = new Scanner(System.in);
+		int size = 0;
+		
+		while(!(size >= 2 && size <= 5)) {
+			System.out.print("2 ~ 5 사이의 정수 입력 : ");
+			size = sc.nextInt();
+		}
+		
+		int arr1[] = new int[size];
+		
+		for(int i = 0; i < size;) {
+			System.out.print("1 ~ 10 사이의 정수 입력 : ");
+			int num = sc.nextInt();
+			if(num >= 1 && num <= 10) {
+				arr1[i] = num;
+			}
+			System.out.printf("%d\t", arr1[i]);			//반복 횟수 3번 아님, 3번 이상일 수 있음
+			}
+		
+	}
+		
+
 	}
 
-}
+
