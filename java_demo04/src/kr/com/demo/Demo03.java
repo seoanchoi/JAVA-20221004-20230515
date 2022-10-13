@@ -25,7 +25,6 @@ public class Demo03 {
 		 *  }
 		 *  
 		 *  switch 문에서 default 는 생략 가능하며, case 에 해당하지 않는 값이계산된 경우 실행.
-		 *  
 		 *  switch 문에서 각 case 마다 마지막 줄에 break 를 사용하지 않으면
 		 *  다음 case가 동작 된다.(break 를 사용하여 switch 문에 대한 중지를 할 수 있다.)
 		 */
