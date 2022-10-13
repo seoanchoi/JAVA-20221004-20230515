@@ -34,7 +34,7 @@ public class Demo01 {
 		
 		/* int x = 1;
 		
-		if(x ==1) {			// 조건식의 결과가 true이기 때문에 아래 문장이 실행됨, false이면 실행 안됨
+		if(x == 1) {			// 조건식의 결과가 true이기 때문에 아래 문장이 실행됨, false이면 실행 안됨
 			System.out.println("변수 x 에는 정수 1 이 저장되어 있습니다.");
 		}
 	
