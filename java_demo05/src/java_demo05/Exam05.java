@@ -22,7 +22,7 @@ public class Exam05 {
 		System.out.println();
 		
 		
-			
+	 		
 		
 		/*
 		 * 2. 1번에서 생성한 배열을 그대로 사용하여 배열 안에 있는 

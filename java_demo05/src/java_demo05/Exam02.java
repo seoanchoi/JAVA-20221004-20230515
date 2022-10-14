@@ -19,7 +19,7 @@ public class Exam02 {
 		System.out.print("5 ~ 10 사이의정수 입력 : ");
 		size = sc.nextInt();
 	}
-	
+	 
 	int arr1[] = new int[size];
 	
 	for(int i = 0; i < size; i++) {

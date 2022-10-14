@@ -20,7 +20,7 @@ public class Exam03 {
 			System.out.print("2 ~ 5 사이의 정수 입력 : ");
 			size = sc.nextInt();
 		}
-		
+		 
 		int arr1[] = new int[size];
 		
 		for(int i = 0; i < size;) {

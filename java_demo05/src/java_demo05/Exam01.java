@@ -21,7 +21,7 @@ public class Exam01 {
 		}
 		System.out.println();
 	
-		
+		 
 		
 		/*
 		 * 배열 크기가 5 인 정수 배열을 만들고 5 부터 -1 씩 감소된

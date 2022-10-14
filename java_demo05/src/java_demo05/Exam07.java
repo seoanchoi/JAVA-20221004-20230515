@@ -20,7 +20,7 @@ public class Exam07 {
 		 * 		총 합 : 43
 		 * 		평 균 : 34.3
 		 */
-		
+		 
 		Scanner sc = new Scanner(System.in);
 
 		int arr[] = new int[0];

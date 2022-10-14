@@ -11,7 +11,7 @@ public class Exam06 {
 		 * Random 은 0 ~ 100 사이의 난수값이 생성되도록 한다.
 		 * 배열에는 홀수에 해당하는 값만 5개 저장되도록 한다.
 		 */
-		
+		 
 		Random rand = new Random();
 		int odd[] = new int[0];
 		
