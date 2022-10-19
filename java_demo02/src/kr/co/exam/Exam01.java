@@ -1,4 +1,4 @@
-package kr.com.exam;
+package kr.co.exam;
 
 public class Exam01 {
 
