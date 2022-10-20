@@ -1,4 +1,7 @@
-package kr.co.exam01;
+package kr.co.demo01;
+
+import kr.co.exam01.Pen;
+import kr.co.exam01.Shoes;
 
 public class Exam01 {
 
