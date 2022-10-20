@@ -1,4 +1,4 @@
-package kr.co.demo01;
+package kr.co.exam01;
 
 public class Shoes {
 	String brand;
