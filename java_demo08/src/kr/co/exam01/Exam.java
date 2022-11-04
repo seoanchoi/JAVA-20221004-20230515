@@ -18,7 +18,9 @@ public class Exam {
 		 */
 		Scanner sc = new Scanner(System.in);
 		
-		String iArr[] = new String[0];
+		String iArr[];
+		int numArr[];
+		int sum = 0;
 		while(true) {
 			System.out.println("공백을 구분자로 하는 정수값을 입력하세요.");
 			System.out.println("입력 : 10 20 30");
@@ -30,10 +32,16 @@ public class Exam {
 				continue;
 			} else {
 				iArr = input.split(" ");
+				numArr = new int[iArr.length];
+				for(int i = 0; i < iArr.length; i++) {
+					numArr[i] = Integer.parseInt(iArr[i]);
+					sum += numArr[i];
+				}
 				break;
 			}
 		}
-		System.out.println("분리된 사용자 입력 정수 값 -> " + Arrays.toString(iArr));
+		System.out.println("분리된 사용자 입력 정수 값 -> " + Arrays.toString(numArr));
+		System.out.println("입력한 정수의 총 합 -> " + sum);
 	}
 
 }
