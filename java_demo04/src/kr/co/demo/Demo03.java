@@ -38,7 +38,7 @@ public class Demo03 {
 				break;
 			case 2:
 				System.out.println("case 2 에 해당되어 동작!");
-				// break;
+				//break;
 			case 3:
 				System.out.println("case 3 에 해당되어 동작!");
 				break;
