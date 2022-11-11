@@ -98,7 +98,7 @@ SELECT NEXT_DAY(SYSDATE, 1) AS "다음 일요일"
      , NEXT_DAY(SYSDATE, 7) AS "다음 토요일"  
   FROM DUAL
  
- SELECT MONTHS_BETWEEN(SYSDATE, ADD_MONTHS(SYSDATE, 5)) AS 개월차
+SELECT MONTHS_BETWEEN(SYSDATE, ADD_MONTHS(SYSDATE, 5)) AS 개월차
    FROM DUAL;
   
 SELECT SYSDATE AS "현재 날짜"
@@ -119,4 +119,43 @@ SELECT  SYSDATE + INTERVAL '5' HOUR AS "5시간 뒤"
      , SYSDATE + INTERVAL '15' DAY AS "50초 뒤"
      , SYSDATE - INTERVAL '15' DAY AS "50초 전"
   FROM DUAL;
+ 
+ 
+ 
+ /*
+  * 형변환 함수
+  * 	TO_CHAR(숫자 또는 날짜값) : 문자 타입으로 변환
+  * 	TO_NUMBER(문자) : 숫자 타입으로 변환
+  * 	TO_DATE(숫자 또는 문자) : 날짜 타입으로 변환
+  */
+SELECT '문자타입' AS 문자타입 
+     , 1234 AS 숫자타입
+     , SYSDATE AS 날짜타입
+  FROM DUAL;		
+ 	
+SELECT TO_CHAR(100)
+     , TO_CHAR(123.456)
+     , TO_CHAR(123456, '999,999')
+     , TO_CHAR(123456.789, '999,999,99999')
+     , TO_CHAR(123456, '000,000,000')
+  FROM DUAL;	
   
+SELECT TO_CHAR(SYSDATE)
+     , TO_CHAR(SYSDATE, 'YYYYMMDD')
+     , TO_CHAR(SYSDATE, 'YYYY-MM-DD HH:MI:SS')
+     , TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')   
+     , TO_CHAR(SYSDATE, 'YYYY"년" MM"월" DD"일" DY"요일" HH"시" MI"분" SS"초"')
+  FROM DUAL;   
+  
+SELECT TO_NUMBER('1234')
+     , TO_NUMBER('12.34')
+     , TO_NUMBER('123,456', '999,999')
+  FROM DUAL;   
+  
+SELECT TO_DATE(20221111)
+     , TO_DATE('20221111')
+     , TO_DATE('2022-11-11')
+     , TO_DATE('2022/11/11')
+     , TO_DATE('2022.11.11')
+     , TO_DATE('2022년 11월 11일', 'YYYY"년" MM"월" DD"일"')
+  FROM DUAL;
