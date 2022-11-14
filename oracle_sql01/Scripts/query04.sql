@@ -42,7 +42,7 @@ SELECT FIRST_NAME || ' ' || LAST_NAME AS 이름
       , RTRIM(RPAD(EMAIL, 20, 'X'), 'X') AS "오른쪽에 있는 특정 문자 제거"   
    FROM EMPLOYEES;
   
-SELECT  PHONE_NUMBER AS 전화번호
+SELECT PHONE_NUMBER AS 전화번호
      , REPLACE(PHONE_NUMBER, '.', '-') AS 변경
   FROM EMPLOYEES;    
 
@@ -159,3 +159,50 @@ SELECT TO_DATE(20221111)
      , TO_DATE('2022.11.11')
      , TO_DATE('2022년 11월 11일', 'YYYY"년" MM"월" DD"일"')
   FROM DUAL;
+  
+ 
+/*
+ * NVL 함수 : NULL 데이터를 다른 값으로 변환
+ */
+SELECT COMMISSION_PCT
+     , NVL(COMMISSION_PCT, 0)
+  FROM EMPLOYEES;
+
+/*
+ * DECODE 함수 : 조건에 따라 사용하는 값을 변환
+ */
+SELECT DECODE('M', 'M', '남자', 'F', '여자')
+  FROM DUAL;
+
+SELECT REGION_ID
+     , DECODE(REGION_ID, 1, '유럽', 2, '아메리카', 3, '아시아', 4, '중앙아시아 및 아프리카', '오세아니아')
+     , REGION_NAME
+  FROM REGIONS;
+
+ /*
+  * CASE WHEN <조건식> THEN <반환값>
+  *      WHEN <조건식> THEN <반환값>
+  *      ...
+  *      ELSE <반환값>
+  * END
+  */
+SELECT EMPLOYEE_ID AS 사번
+     , FIRST_NAME || ' ' || LAST_NAME AS 이름
+     , CASE WHEN SALARY >= 2000 AND SALARY < 5000 THEN '낮은급여'
+            WHEN SALARY >= 5000 AND SALARY < 8000 THEN '적당한급여'
+            WHEN SALARY >= 8000 AND SALARY < 15000 THEN '높은급여'
+            WHEN SALARY >= 15000 THEN '매우높은급여'
+        END AS 급여수준
+  FROM EMPLOYEES;
+   
+  
+/*
+ * 그룹 함수
+ *  - COUNT(컬럼명 또는 *) : 조회된 Record Set 의 Record 수를 반환
+ *  - MAX(컬럼명) : 지정한 컬럼의 값 중 가장 큰값을 반환
+ *  - MIN(컬럼명) : 지정한 컬럼의 값 중 가장 작은값을 반환
+ *  - AVG(컬럼명) : 지정한 컬럼의 값들의 평균값을 반환 
+ *  - SUM(컬럼명) : 지정한 컬럼의 갑들의 총합을 반환
+ */
+ SELECT COUNT(*) FROM EMPLOYEES WHERE SALARY >= 10000;
+ SELECT MAX(SALARY), MIN(SALARY), AVG(SALARY), SUM(SALARY) FROM EMPLOYEES; 
