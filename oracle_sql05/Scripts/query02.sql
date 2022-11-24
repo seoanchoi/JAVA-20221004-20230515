@@ -11,7 +11,7 @@ CREATE OR REPLACE VIEW V_EMP /*없으면 만들고 있으면 수정해라*/
 AS
 SELECT EMPLOYEE_ID AS EMP_ID
      , FIRST_NAME || ' ' || LAST_NAME AS EMP_NAME
-     , LOWER(EMAIL) || '@emp.co.kr' AS EMAIL 
+     , LOWER(EMAIL) || '@emp.co.kr' AS EMAIL  
      , SALARY
      , MANAGER_ID
      , DEPARTMENT_ID AS DEPT_ID
