@@ -9,8 +9,8 @@ CREATE SEQUENCE SEQ1
    INCREMENT BY 10/*10단위로 증가*/
        MAXVALUE 100
        MINVALUE -100   
-          CYCLE
-          CACHE 10; /*미리 생성할 정수값 수량*/
+          CACHE 10
+          CYCLE; /*미리 생성할 정수값 수량*/
 
 ALTER SEQUENCE SEQ1
   INCREMENT BY 5
