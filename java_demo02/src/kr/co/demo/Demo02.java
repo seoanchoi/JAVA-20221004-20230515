@@ -11,16 +11,16 @@ public class Demo02 {
 		//		 작성하게 된다. 
 		//		 변수를 사용하는 방식과 동일하며, 자료형 앞에 final 키워드를 붙이면 된다.
 		
-		final int X = 10; 
+//	final int X = 10; 
 		
 	
-		System.out.print(X);
+		//System.out.print(X);
 
-		//final int Y = 20;
-		//Y = 30; // 이미 한번 초기화한 상태여서 재할당 할 수 없어서 에러남 	
+	final int Y = 20;
+		Y = 30; // 이미 한번 초기화한 상태여서 재할당 할 수 없어서 에러남 	
 		
-		final int Y;
-		Y = 20;
+		//final int Y;
+		//Y = 20;
 		System.out.print(Y);
 		
 		// Y = 30;	

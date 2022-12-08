@@ -17,22 +17,23 @@ public class Demo05 {
 		 * 
 		 */
 		
-		int i = 1; 						// 초기식
+		/*int i = 1; 						// 초기식
 		while(i <= 5) {					//조건식
 			System.out.printf("%d\n", i);
 			i++;						//증감식
 		}
+	*/
 	
 	
 		
-		//무한 반복
+	/*//무한 반복
 		while(true) {
 			System.out.printf("%d\n", i);
 			if(i >= 10) {
 				break;
 			}
 			i++;
-		}
+		}*/
 		
 		
 		
@@ -44,8 +45,7 @@ public class Demo05 {
 		 * 	반복 실행 코드;
 		 * } while(조건식);
 		 *  
-		 */
-	
+		 
 		
 		
 		
@@ -89,7 +89,7 @@ public class Demo05 {
 		
 		
 		
-		
+*/		
 		
 	}
 }

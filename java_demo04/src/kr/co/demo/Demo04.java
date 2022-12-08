@@ -32,8 +32,8 @@ public class Demo04 {
 		 * 반복문 안에 continue 를 사용하면 반복문의 처음으로 이동한다.
  		 */
 		
-		/* 
-	 	int x;
+		 
+	 	/* int x;
 		for(x = 1; x <=3; x++) {
 			System.out.printf("반복 횟수 및 변수 x에 저장된 값 -> %회 / %d\n", x, x);
 		}
