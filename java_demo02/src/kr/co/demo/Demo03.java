@@ -32,7 +32,7 @@ public class Demo03 {
 		String st5 = "문자열" + true;
 		String st6 = "문자열" + 'A';
 		
-		System.out.println(st1);
+		System.out.println(st1); 
 		System.out.println(st2);
 		System.out.println(st3);
 		System.out.println(st4);
