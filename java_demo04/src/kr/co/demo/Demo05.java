@@ -4,7 +4,7 @@ public class Demo05 {
 
 	public static void main(String[] args) {
 		/*
-		 * while 반복문
+		 * while 반복문 
 		 * 
 		 * while(조건식) {
 		 *  	실행코드;
