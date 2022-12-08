@@ -15,7 +15,7 @@ CREATE TABLE 지출내역서 (
      /* , CONSTRAINT 지출내역서_ID_PK PRIMARY KEY(ID) */
      /* , CONSTRAINT 지출내역서_출입구분_CK CHECK(출입구분 IN ('출', '입')) */
 ); 
-
+ 
 SELECT * FROM 지출내역서;
 
 ALTER TABLE 지출내역서 ADD ID CONSTRAINT 지출내역서_ID_PK PRIMARY KEY(ID);
