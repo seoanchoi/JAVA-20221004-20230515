@@ -12,7 +12,7 @@
  *       단, 중복된 결과는 하나만 반영 한다.
  *     - 합집합(중복불허)
  * 
- * INTERSECT 
+ * INTERSECT  
  *     - 모든 Record Set 의 결과를 합칠 때 중복 Record 에 대해서만 하나의
  *       Record Set 으로 합친다.
  *     - 교집합
