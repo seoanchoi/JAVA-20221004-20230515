@@ -1,5 +1,6 @@
 package kr.co.controller;
 
+import java.sql.SQLException;   
 import java.util.List;
 
 import kr.co.dao.AccountDAO;
@@ -82,21 +83,21 @@ public class AccountController {
 		}
 	}
 
-	public void changePassword(int id, String newPassword) {
+	public AccountVO changePassword(AccountVO account, String newPassword) {
 		AccountDAO dao = new AccountDAO();
 		
-		AccountVO data = new AccountVO();
-		data.setId(id);
-		data.setPassword(newPassword);
+		account.setPassword(newPassword);
 		
-		boolean result = dao.updateAccountPassword(data);
+		boolean result = dao.updateAccountPassword(account);
 		
 		AccountView view = new AccountView();
 		if(result) {
-			view.message("패스워드 변경이 완료 되었습니다 - 자동으로 로그아웃 됩니다.");
+			view.message("패스워드 변경이 완료 되었습니다. - 자동으로 로그아웃 됩니다.");
+			return null;
 		} else {
-			view.message("패스워드 변경에 실패하였습니다 - 정보를 다시 확인하세요");
+			view.message("패스워드 변경에 실패하였습니다. - 정보를 다시 확인하세요.");
+			return account;
 		}
-
 	}
+
 }

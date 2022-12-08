@@ -49,13 +49,28 @@ public class AccountManager {
 					}
 					break;
 				case 5:
-					if(user!= null) {
+					if(user != null) {
 						this.changePassword();
 					}
+					break;
 				case 9:
 					System.out.println("프로그램을 종료 합니다.");
 					System.exit(0);
 			}
+		}
+	}
+
+	private void changePassword() {
+		AccountController ac = new AccountController();
+		
+		System.out.print("변경 할 패스워드 입력 : ");
+		String newPassword = sc.nextLine();
+		
+		System.out.print("현재 패스워드 입력 : ");
+		String oldPassword = sc.nextLine();
+		
+		if(this.user.getPassword().equals(oldPassword)) {
+			this.user = ac.changePassword(this.user, newPassword);
 		}
 	}
 
@@ -106,12 +121,6 @@ public class AccountManager {
 		
 		System.out.print("이메일 입력 : ");
 		String email = sc.nextLine();
-		
-		System.out.println("votmdnjemdlqfur : ");
-		String password = sc.nextLine();
-		
-		System.out.println("현재 패스워드 입력: ");
-		String password = sc.nextLine();
 		
 		ac.setAccountRequest(nickname, email);
 	}
