@@ -11,7 +11,7 @@
  *    DBA(관리자)가 정한 동의어로 모든 사용자가 사용 가능(DUAL이 공개 동의어로 만들어진 것)
  * 
  */
-
+ 
 /*관리자 계정으로 테스트 계정 생성*/
 CREATE USER user1 IDENTIFIED BY user1;
 CREATE USER user2 IDENTIFIED BY user2;
