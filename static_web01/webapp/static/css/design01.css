@@ -1,0 +1,152 @@
+.top-nav > .menu {
+    list-style-type:none;
+    background-color: lightcoral;
+}
+
+.top-nav .menu-item, 
+.top-nav .menu-link {
+    display: inline-block;
+}
+
+.top-nav .menu-link {
+    text-decoration: none;
+    padding: 16px 8px 16px 8px;
+    color:lightblue;
+    background-color: lightcoral;
+}
+
+.top-nav .menu-link:hover {
+    background-color: lightblue;
+    color: lightcoral;
+}
+
+
+.side-nav .menu{
+    width: 200px;
+    list-style-type: none;
+    border-style: none;
+    background-color: mistyrose;
+    padding-inline-start: 0px;
+    box-sizing: border-box;
+}
+
+.side-nav .menu-link {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px;
+    text-decoration: none;
+    color: black;
+}
+
+.side-nav .menu-link:hover {
+    background-color: lavender;
+}
+
+.side-nav .active {
+    background-color: lavender;
+}
+
+.dropdown-nav .dropdown-menu .dropdown{
+    position: relative
+}
+
+.dropdown-nav .dropdown-menu {
+    background-color: rgb(240, 240, 240);
+}
+
+.dropdown-nav .dropdown-menu,
+.dropdown-nav .sub-menu {
+    list-style-type: none;
+}
+.dropdown-nav .menu-item,
+.dropdown-nav .menu-link {
+    display: inline-block;
+}
+.dropdown-nav .menu-link {
+    text-decoration: none;
+    padding: 16px;
+    color: slategray;
+    background-color: rgb(240, 240, 240);
+}
+.dropdown-nav .menu-item:hover,
+.dropdown-nav .menu-link:hover {
+    background-color: whitesmoke;
+}
+.dropdown-nav .dropdown-menu .sub-menu {
+    display: none;
+    position: absolute;
+    left: 0px; top: 53px;
+    padding-inline-start: 0px;
+    width: 120px;
+    box-shadow: 1px 1px 3px 0px rgb(202, 202, 202);
+}
+.dropdown-nav .sub-menu .sub-item,
+.dropdown-nav .sub-menu .sub-link {
+    display: block;
+    box-sizing: border-box;
+}
+.dropdown-nav .sub-menu .sub-link {
+    text-decoration: none;
+    padding: 8px;
+    color: slategray;
+}
+.dropdown-nav .sub-menu .sub-link:hover {
+    background-color: rgb(240, 240, 240);
+}
+.dropdown-nav .dropdown-menu .menu-item:hover .sub-menu {
+    display: inline-block;
+    background-color: whitesmoke;
+}
+
+
+
+
+
+
+.side-dropdown-nav .side-dropdown-menu {
+    list-style-type: none;
+    padding-inline-start: 0px;
+    width: 200px;
+}
+
+.side-dropdown-nav .menu-item {
+    box-sizing: border-box;
+    background-color: rgb(240, 240, 240);
+}
+
+.side-dropdown-nav .menu-item:hover {
+    background-color: whitesmoke;
+}
+
+.side-dropdown-nav .menu-link {
+    display: block;
+    box-sizing: border-box;
+    text-decoration: none;
+    color:slategrey;
+    padding: 8px;
+}
+
+.side-dropdown-nav .sub-menu {
+    display: none;
+}
+
+.side-dropdown-nav .dropdown:hover .sub-menu {
+    display: block;
+    background-color:whitesmoke;
+}
+
+.side-dropdown-nav .sub-menu {
+    list-style-type: none;
+}
+
+.side-dropdown-nav .sub-menu .sub-link {
+    text-decoration: none;
+    color: slategray;
+    padding: 6px;
+    display: block;
+}
+
+.side-dropdown-nav .sub-menu .sub-link:hover {
+    color:rgb(36, 64, 92);
+}
