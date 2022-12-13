@@ -1,0 +1,107 @@
+button {
+    margin: 0;
+    padding: 0.5em 1em 0.5em 1em;
+    border-style: none;
+    box-sizing: border-box;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button.block {
+    display:block;
+    width: 100%;
+}
+
+.btn-ok {
+    background-color: cornflowerblue;
+    color: white
+}
+
+.btn-ok:hover {
+    background-color: rgb(72, 114, 192);
+    color: white;
+}
+
+.btn-cancel {
+    background-color: crimson;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background-color: rgb(177, 25, 55);
+    color: white;
+}
+
+
+
+input.input-text {
+    padding: 0.5em;
+    outline-style: none;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 2px;
+    box-sizing: border-box;
+}
+
+input.input-text:hover,
+input.input-text:focus {
+    border-color: beige;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.input-text.block {
+    width: 100%;
+}
+
+.input-check, .input-radio {
+    display: none;
+}
+
+.check-form {
+    display: inline-block;
+    border-style: solid;
+    border-width: 2px;
+    border-color: slategray;
+    width: 10px; height: 10px;
+}
+
+.radio-form {
+    display: inline-block;
+    border-style: solid;
+    border-width: 2px;
+    border-color: slategray;
+    border-radius: 50%;
+    width: 10px; height: 10px;
+}
+
+.input-check:checked ~ .check-form {
+    background-color: rgb(72, 114, 192);
+    border-color: rgb(72, 114, 192);
+    position: relative;
+}
+
+.input-check:checked ~ .check-form::after {
+    content:"√";
+    position: absolute;
+    left: -1px; top: -7px;
+    color:white
+}
+
+.input-radio:checked ~ .radio-form {
+    background-color: rgb(72, 114, 192);
+    border-color: rgb(72, 114, 192);
+    position: relative;
+}
+
+.input-radio:checked ~ .radio-form::after {
+    content: "●";
+    font-size: 1px;
+    position: absolute;
+    left: -0px; top: -2px;
+    color:white
+}
+
+
