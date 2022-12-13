@@ -10,7 +10,7 @@
 
 /*
  * 문자 함수
- */
+ */ 
 SELECT EMAIL
      , LENGTH(EMAIL) AS 문자열길이
   FROM EMPLOYEES;
