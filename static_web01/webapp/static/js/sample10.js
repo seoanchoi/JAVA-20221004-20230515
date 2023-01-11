@@ -2,8 +2,6 @@
     $("from > button").on("이벤트명", 메서드)
 }); */
 
-
-
 $(document).ready(function() {
     $("form > button").on("click", addBookmark); // 이벤트 등록
     // $("form > button").off("click", addBookmark); 이벤트 삭제
