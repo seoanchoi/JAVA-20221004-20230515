@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 디비와 연결할 수 있는 커넥션이 생김, 커넥션 이름은 dataSource -->
+	<bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource" destroy-method="close"> <!-- destroy-method로 끊어주고 끝냄 -->
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="KH"/>
+		<property name="password" value="KH"/>
+	</bean> 
+	
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="SqlSessionFactory">
+		<property name="dataSource" ref="dataSource"/>	<!-- ref="dataSource"이거 아이디 값임 -->
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+	</bean>
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+		<constructor-arg ref="SqlSessionFactory"/>
+	</bean>
+
+	<!-- 
+	이전 mvc모델에서는?
+	BasicDataSource dataSource = newBasicDataSource(a,b); 
+	dataSource.setXXX(값); dataSour.close(); 
+	
+	SqlSessionFactoryBean SqlSessionFactory = new SqlSessionFactoryBean();   
+	-->
+		
+</beans>
