@@ -26,7 +26,7 @@ public class BoardDao {
 		return sqlSession.update("boardns.updateForReply", boardNum);		
 	}
 	public int delete(int boardNum  /* BoardVo vo 또는 PK 또는 List<PK>*/) {
-		return sqlSession.delete("boardns.insertid", boardNum);		
+		return sqlSession.delete("boardns.deleteid", boardNum);		
 	}
 	public BoardVo selectOne(int boardNum /* PK */) {
 		return sqlSession.selectOne("boardns.selectOneid", boardNum);		
