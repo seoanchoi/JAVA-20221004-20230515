@@ -1,11 +1,13 @@
 package kh.spring.s02.board.model.vo;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class BoardVo {
+public class BoardVo implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private int boardNum;
 	private String boardTitle;
 	private String boardWriter;
@@ -13,9 +15,9 @@ public class BoardVo {
 	private String boardOriginalFilename;
 	private String boardRenameFilename;
 	private Date boardDate;
-	private int boardLevel;
-	private int boardRef;
-	private int boardReplySeq;
+	private int boardLevel;  // 
+	private int boardRef;  //
+	private int boardReplySeq;  // 
 	private int boardReadcount;
 	@Override
 	public String toString() {
