@@ -44,8 +44,15 @@ public class BoardDao {
 //		return aa.selectList("boardns.selectListid", null, rb);		
 		return aa.selectList("boardns.selectListid", null, new RowBounds((currentPage-1)*limit,limit));		
 	}
+	
+	public List<BoardVo> selectList(int currentPage, int limit, String searchWord) {
+		return aa.selectList("boardns.selectListid", searchWord);
+	}
 	public int selectOneCount() {
 		return aa.selectOne("boardns.selectOneCount");
+	}
+	public int selectOneCount(String seachWord) {
+		return aa.selectOne("boardns.selectOneCount", seachWord);
 	}
 //	public List<HashMap<String, Object>> tempSelect() {
 	public List<BoardVo> tempSelect() {

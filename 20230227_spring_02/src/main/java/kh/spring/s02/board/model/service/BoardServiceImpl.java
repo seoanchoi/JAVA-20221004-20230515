@@ -62,11 +62,16 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public int selectOneCount() {
-		return dao.selectOneCount();
+		return dao.selectOneCount();	
+	}
+	
+	@Override
+	public int selectOneCount(String searchWord) {
+		return dao.selectOneCount(searchWord);	
 	}
 
 	@Override
-	public List<BoardVo> selectList(int currentPage, int limit) {
+	public List<BoardVo> selectList(int currentPage, int limit, String searchWord) {
 		return dao.selectList(currentPage,limit);
 	}
 

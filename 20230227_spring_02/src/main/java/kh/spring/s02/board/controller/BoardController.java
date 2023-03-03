@@ -20,7 +20,7 @@ import kh.spring.s02.board.model.vo.BoardVo;
 
 @Controller
 //@WebServlet("/boardinsert")
-@RequestMapping("/board")
+@RequestMapping("/liset")
 public class BoardController {
 	
 	@Autowired
@@ -31,8 +31,15 @@ public class BoardController {
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView viewListBoard( ModelAndView mv) {
+		//ToDo
+		//검색단어는 제목, 내용, 작성자에서 포함되어있으면 찾기
+		//null또는 ""는 검색하지 않음
+//		String searchWord = null;
+//		String searchWord = "";
+		String searchWord = "답";
+		
 		// TODO
-		int currentPage = 2;
+		int currentPage = 1;
 		int totalCnt = service.selectOneCount();
 		int totalPage = (totalCnt%BOARD_LIMIT==0)?
 				(totalCnt/BOARD_LIMIT) : 
@@ -54,7 +61,9 @@ public class BoardController {
 //		mv.addObject("startPage", startPage);
 //		mv.addObject("endPage", endPage);
 //		mv.addObject("currentPage", currentPage);
-		mv.addObject("boardlist", service.selectList(currentPage, BOARD_LIMIT));
+		
+	
+		mv.addObject("boardlist", service.selectList(currentPage, BOARD_LIMIT, searchWord));
 		mv.setViewName("board/list");
 		return mv;
 	}
