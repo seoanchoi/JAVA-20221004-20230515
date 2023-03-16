@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kh.spring.s02.board.model.dao.BoardDao;
 import kh.spring.s02.board.model.vo.BoardVo;
@@ -23,6 +24,7 @@ public class BoardServiceImpl implements BoardService {
 	
 	
 	@Override
+	@Transactional
 	public int insert(BoardVo vo) {
 		if(vo.getBoardNum() != 0) {
 			// 답글   (원글은 0)
@@ -44,7 +46,7 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public BoardVo selectOne(int boardNum, String writer) {
 		BoardVo result = dao.selectOne(boardNum);
-		if(!result.getBoardWriter().equals(writer)) {
+		if(result!=null && !result.getBoardWriter().equals(writer)) {
 			dao.updateReadCount(boardNum);	
 		}
 		return result;
@@ -62,17 +64,34 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public int selectOneCount() {
-		return dao.selectOneCount();	
+		return dao.selectOneCount();
+	}
+	@Override
+	public int selectOneCount(String searchWord) {
+		return dao.selectOneCount(searchWord);
 	}
 	
 	@Override
-	public int selectOneCount(String searchWord) {
-		return dao.selectOneCount(searchWord);	
+	public List<BoardVo> selectList(int currentPage, int limit) {
+		return dao.selectList(currentPage,limit);
 	}
 
 	@Override
 	public List<BoardVo> selectList(int currentPage, int limit, String searchWord) {
-		return dao.selectList(currentPage,limit);
+		return dao.selectList(currentPage, limit, searchWord);
 	}
+
+	@Override
+	public List<BoardVo> selectReplyList(int boardNum) {
+		return dao.selectReplyList(boardNum);
+	}
+
+	@Override
+	public List<BoardVo> selectReplyList(int boardNum, int currentPage, int limit) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }
