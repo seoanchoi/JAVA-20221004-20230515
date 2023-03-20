@@ -19,8 +19,34 @@
 	${board.boardContent }
 	</div>
 	<div>
+	<p>메인이미지</p>
 	<img src="${cpath }${uploadpath}${board.boardRenameFilename }">
 	</div>
+	<hr>
+	
+	<!-- 첨부 파일들 모두 display -->
+	<div>
+	<%-- 
+	<c:forEach varStatus="vs" items="${boardFileList }" var="boardfile">
+		<p>${boardfile.originalFilename}</p>
+		<img src="${cpath }${uploadpath}${boardfile.renameFilename}">
+	</c:forEach>
+	 --%>
+	<c:forEach varStatus="vs" items="${board.boardFileList }" var="boardfile">
+	<div>
+		<p>${vs.count}번째 ${boardfile.originalFilename}</p>
+		<img src="${cpath }${uploadpath}${boardfile.renameFilename}">
+		<hr>
+	</div>
+	</c:forEach>
+	</div>
+	
+	
+	
+	
+	
+	<!-- 답글작성 -->
+	<hr>
 	<form id="frmReply" enctype="multipart/form-data">
 	<fieldset>
 	 	<legend>답글작성</legend>
@@ -76,8 +102,7 @@
 		$.ajax({ 
 			url: "${pageContext.request.contextPath}/board/insertReplyAjax"
 			, type: "post"
-			
-			//, contentType:"multipart/form-data"
+			//, async: 
 			, contentType: false
 			, processData: false
 			, data: formdata  // QueryString // js object
@@ -120,18 +145,6 @@
 		$("tbody").html(htmlVal);
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 </script>

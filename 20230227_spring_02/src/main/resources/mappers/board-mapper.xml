@@ -16,31 +16,68 @@
 	<result column="board_Readcount" property="boardReadcount"/>
 </resultMap>
 
-<insert id="insertid" parameterType="kh.spring.s02.board.model.vo.BoardVo">
+<resultMap type="bvo" id="bvoCollectioMap">
+	<id column="board_Num" property="boardNum"/>
+	<result column="board_Title" property="boardTitle"/>
+	<result column="board_Writer" property="boardWriter"/>
+	<result column="board_Content" property="boardContent"/>
+	<result column="board_Original_Filename" property="boardOriginalFilename"/>
+	<result column="board_Rename_Filename" property="boardRenameFilename"/>
+	<result column="board_Date" property="boardDate"/>
+	<result column="board_Level" property="boardLevel"/>
+	<result column="board_Ref" property="boardRef"/>
+	<result column="board_Reply_Seq" property="boardReplySeq"/>
+	<result column="board_Readcount" property="boardReadcount"/>
+	<collection column="board_Num" property="boardFileList" ofType="kh.spring.s02.board.model.vo.BoardFileVo">
+		<result column="ORIGINAL_FILENAME" property="originalFilename"/>
+		<result column="RENAME_FILENAME" property="renameFilename"/>
+	</collection>
+</resultMap>
+
+
+<!-- sequence 사용 -->
+<select id="getSeqBoardNum" resultType="_int">
+	select SEQ_BOARD_NUM.nextval from dual
+</select>
+
+<!-- sequence 사용 -->
+<insert id="insertid" parameterType="hashmap">
 	insert into board values
 	(
-		(select NVL(MAX(BOARD_NUM), 0)+1 from board)
-		, #{boardTitle}
-		, #{boardWriter}
-		, #{boardContent}    
-		, #{boardOriginalFilename}
-		, #{boardRenameFilename}
+		  #{seqboardNum}
+		, #{bvo.boardTitle}
+		, #{bvo.boardWriter}
+		, #{bvo.boardContent}    
+		, #{bvo.boardOriginalFilename}
+		, #{bvo.boardRenameFilename}
 		, default
 	<choose>
 		<when test="boardNum != 0">
-    , (select board_level+1 from board where board_num=#{boardNum})
-    , (select BOARD_REF from board where board_num = #{boardNum})
-    , (select BOARD_REPLY_SEQ+1 from board where board_num=#{boardNum})
+    , (select board_level+1 from board where board_num=#{bvo.boardNum})
+    , (select BOARD_REF from board where board_num = #{bvo.boardNum})
+    , (select BOARD_REPLY_SEQ+1 from board where board_num=#{bvo.boardNum})
 		</when>
 		<otherwise>
 		, DEFAULT 
-		, (select NVL(MAX(BOARD_NUM), 0)+1 from board)
+		, #{seqboardNum}
 		, DEFAULT
 		</otherwise>
 	</choose>
 		, DEFAULT
 	)
 </insert>
+
+
+<!-- sequence 사용 -->
+<insert id="insertFile" parameterType="hashmap">
+insert into board_file values( #{seqBoardNum}, #{bvo.boardOriginalFilename}, #{bvo.boardRenameFilename})
+<!-- transactional 확인용 오류 
+insert into board_file values( -2 , #{bvo.boardOriginalFilename}, #{bvo.boardRenameFilename}) 
+-->
+</insert>
+
+
+
 <update id="updateid">
 	update board set
 		board_Title = #{boardTitle}
@@ -81,6 +118,13 @@
 <!-- <select id="selectOneid" resultType="kh.spring.s02.board.model.vo.BoardVo"> -->
 	select * from board where board_Num = #{boardNum}
 </select>
+<select id="selectOneidCollection" resultMap="bvoCollectioMap"> 
+	select * 
+		from board
+			left outer join board_file using(board_Num)	
+	 where board_Num = #{boardNum}
+</select>
+
 <select id="selectListid" resultMap="bvoMap"> 
 <!-- <select id="selectListid" resultType="bvo"> -->
 select BOARD_NUM,BOARD_TITLE, BOARD_WRITER, BOARD_CONTENT 
@@ -113,27 +157,7 @@ select BOARD_NUM,BOARD_TITLE, BOARD_WRITER, BOARD_CONTENT
 			and BOARD_REPLY_SEQ > (select BOARD_REPLY_SEQ from board where board_Num=#{board_Num} )
 		order by BOARD_REPLY_SEQ asc
 </select>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
  
 <select id="tempCallableSelect" 
 		statementType="CALLABLE"
@@ -165,19 +189,6 @@ select BOARD_NUM,BOARD_TITLE, BOARD_WRITER, BOARD_CONTENT
 		</foreach>
 	</where>
 </delete> 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
  
 </mapper>
